@@ -21,7 +21,8 @@ array = np.array([[2., 6., 2., 4., 1., 1.],
                   [1., 1., 0., 6., 5., 4.],
                   [1., 4., 3., 4., 2., 0.],
                   [0., 4., 1., 3., 4., 1.]])
-j_data = json.dumps(array)
+array_list = array.tolist()
+j_data = json.dumps(array_list)
 
 headers = {'content-type': 'application/json', 'Accept-Charset': 'UTF-8'}
 
@@ -29,4 +30,4 @@ r = requests.post(url, data=j_data, headers=headers)
 
 # Se guarda el resultado de la prediccion en un json en la misma carpeta
 with open('./respuesta_desafio', 'w') as file:
-    json.dump(r, file) 
+    json.dump(r.text, file) 
