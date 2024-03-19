@@ -14,7 +14,7 @@ import numpy as np
 import csv, sqlite3, json
 
 app = Flask(__name__)
-app.config["DEBUG"] = True
+# app.config["DEBUG"] = True
 
 #===============================================================================================================================
 # Endpoint HOME 
@@ -64,8 +64,4 @@ modelfile = r'/home/ubuntu/prod/endpoint/model_linreg.pkl'  # ruta a donde tenem
 model = pickle.load(open(modelfile, 'rb'))
 
 if __name__ == "__main__":
-    print("hello")
-    app.run(debug=False)
-
-
-app.run()
+    app.run(debug=True)
